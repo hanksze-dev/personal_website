@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design tokens ─── */
+:root {
+  --background: #0a0a08;
+  --foreground: #f0ece4;
+  --gold: #c8a96e;
+  --surface: #111110;
+  --muted: #9a9186;
+  --border: #222220;
+}
+
+/* ─── Base resets ─── */
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  body {
+    font-family: var(--font-outfit), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--gold);
+    color: var(--background);
+  }
+}
+
+/* ─── Reusable component classes ─── */
+@layer components {
+  .cta-primary {
+    @apply inline-flex items-center font-mono text-xs tracking-widest uppercase px-5 py-3 border border-gold text-gold hover:bg-gold hover:text-background transition-colors duration-200;
+  }
+
+  .cta-ghost {
+    @apply inline-flex items-center font-mono text-xs tracking-widest uppercase px-5 py-3 border border-border text-muted hover:border-foreground hover:text-foreground transition-colors duration-200;
+  }
+}
