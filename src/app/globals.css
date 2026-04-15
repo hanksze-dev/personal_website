@@ -4,12 +4,12 @@
 
 /* ─── Design tokens ─── */
 :root {
-  --background: #0a0a08;
-  --foreground: #f0ece4;
-  --gold: #c8a96e;
-  --surface: #111110;
-  --muted: #9a9186;
-  --border: #222220;
+  --background: #faf8f5;
+  --foreground: #1c1a17;
+  --gold: #8c6528;
+  --surface: #f0ece6;
+  --muted: #5c5750;
+  --border: #ddd8d0;
 }
 
 /* ─── Base resets ─── */
@@ -22,12 +22,15 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 18px;
     background-color: var(--background);
     color: var(--foreground);
   }
 
   body {
     font-family: var(--font-outfit), system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

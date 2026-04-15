@@ -36,10 +36,6 @@ export default function Contact() {
         <SectionLabel>Contact</SectionLabel>
 
         <div className="mt-12 max-w-xl">
-          <p className="font-sans text-lg text-muted leading-relaxed mb-10">
-            Open to PM internship opportunities at AI-native startups for Summer 2026.
-          </p>
-
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <span className="font-mono text-xs tracking-widest text-gold uppercase w-16">Email</span>

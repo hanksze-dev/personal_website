@@ -16,12 +16,27 @@ export const siteConfig = {
     "AI PM who built training infrastructure at Scale AI and shipped AI products at Meta. Stanford GSB MBA candidate 2027.",
 };
 
+export interface ExperienceSpotlight {
+  imageUrl: string;
+  imageAlt: string;
+  metrics: { label: string; value: string }[];
+  quote?: string;
+  quoteAuthor?: string;
+  productUrl?: string;
+  productLabel?: string;
+}
+
 export interface ExperienceItem {
   company: string;
   role: string;
   period: string;
   location?: string;
+  product: string;
+  summary: string;
+  metrics: { label: string; value: string }[];
   bullets: string[];
+  heroImages?: string[];
+  spotlight?: ExperienceSpotlight;
 }
 
 export const experience: ExperienceItem[] = [
@@ -29,6 +44,13 @@ export const experience: ExperienceItem[] = [
     company: "Scale AI",
     role: "Technical Program Manager & PM",
     period: "Oct 2023 – Oct 2025",
+    product: "Process Supervision Data Platform",
+    summary: "0→1 training infrastructure platform adopted company-wide, enabling AI products that drive 40% of Scale's monthly revenue — and cutting new product launch time from 9 to 4 weeks.",
+    metrics: [
+      { value: "40%", label: "of Scale revenue" },
+      { value: "9→4 wks", label: "launch time" },
+      { value: "8%", label: "reasoning gains" },
+    ],
     bullets: [
       "Led pilots validating Process Supervision training method → 8% model reasoning gains, 2 global EdTech enterprise wins.",
       "Built Process Supervision Data Platform (0→1), adopted company-wide; cut launch from 9 to 4 weeks; enabled products driving 40% of Scale's monthly revenue.",
@@ -40,6 +62,14 @@ export const experience: ExperienceItem[] = [
     company: "Meta, Generative AI",
     role: "Product Operations Manager",
     period: "Apr 2021 – Oct 2023",
+    product: "Internal Feed Recommendation Explainer",
+    summary: "Internal tool giving Meta employees visibility into why content surfaces in their feeds — enabling structured feedback that caught 250 launch-blocking bugs across FB, IG, and WhatsApp before public AI release.",
+    metrics: [
+      { value: "10K+", label: "early users" },
+      { value: "250", label: "bugs fixed" },
+      { value: "20%", label: "fewer bug reports" },
+    ],
+    heroImages: ["/meta-rec-1.png", "/meta-rec-2.png"],
     bullets: [
       "Reduced AI Agent bug reports 20% by identifying hallucination-prone topics; launched search plugins before public release.",
       "Created dogfooding program across FB, IG, WhatsApp → 10,000+ user adoption, 250 launch-blocking bugs fixed.",
@@ -49,18 +79,49 @@ export const experience: ExperienceItem[] = [
   },
   {
     company: "Motic Digital Pathology",
-    role: "Associate PM",
+    role: "Associate Product Manager",
     period: "Jun 2020 – Jan 2021",
-    bullets: [
-      "Globalized APAC telemedicine SaaS → deployed in 14+ hospitals across North America, Africa, Southeast Asia.",
-      "Built pathologist user community (~160 members) → 30% increase in onboarding efficiency.",
+    product: "MoticFlow Telepathology Platform",
+    summary: "Cloud-based slide-sharing SaaS bringing subspecialty pathology expertise to hospitals in underserved markets — deployed across 14+ hospitals on 3 continents.",
+    metrics: [
+      { value: "14+", label: "hospitals deployed" },
+      { value: "700+", label: "diagnoses facilitated" },
+      { value: "30%", label: "onboarding efficiency" },
     ],
+    bullets: [
+      "Globalized APAC telemedicine SaaS (MoticFlow) → deployed in 14+ hospitals across North America, Africa, and Southeast Asia with 700+ diagnoses.",
+      "Built pathologist user champion community (~160 members) → 30% increase in onboarding efficiency.",
+      "Shipped system customization features to improve diagnosis turnaround time and HIPAA compliance during COVID.",
+      "Secured 3 enterprise pilot opportunities by aligning roadmap with DICOM interoperability standard.",
+      "Expanded 2 major US Top 10 cancer research hospital accounts via cross-functional testing and validation.",
+    ],
+    spotlight: {
+      imageUrl: "https://moticdigitalpathology.com/wp-content/uploads/2021/03/moticflow-intro-img.png",
+      imageAlt: "MoticFlow telepathology platform — cloud-based case sharing interface",
+      metrics: [
+        { value: "14+", label: "Hospitals Deployed" },
+        { value: "700+", label: "Diagnoses Facilitated" },
+        { value: "160", label: "Pathologist Community" },
+        { value: "30%", label: "Onboarding Efficiency" },
+      ],
+      quote: "Having MoticFlow as a telepathology platform is a game-changer for partners in Myanmar. The ability to access subspecialty expertise gives them confidence to diagnose difficult and rare diseases.",
+      quoteAuthor: "Jane E. Brock, MBBS, PhD — Chief of Breast Pathology, Brigham and Women's Hospital",
+      productUrl: "https://moticdigitalpathology.com/product/moticflow-slide-sharing/",
+      productLabel: "View MoticFlow →",
+    },
   },
   {
     company: "Bear Tech",
     role: "Co-Founder & PM",
     period: "Aug 2017 – May 2020",
     location: "UC Berkeley-incubated",
+    product: "Bear Tech Career Platform",
+    summary: "0→1 career development platform connecting students with 110+ SMB employers — scaled to 7-figure revenue with 50%+ YoY growth and a 95% placement success rate.",
+    metrics: [
+      { value: "7-fig", label: "revenue" },
+      { value: "50%+", label: "YoY growth" },
+      { value: "95%", label: "placement rate" },
+    ],
     bullets: [
       "Built career development platform 0→1 to 7-figure revenue, 50%+ YoY growth, 110+ SMB employer partners, 95% placement success.",
       "Automated education planning app using 1000+ proprietary alumni data points.",
